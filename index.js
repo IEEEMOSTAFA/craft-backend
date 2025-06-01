@@ -1,3 +1,5 @@
+
+// nodemon index.js
 const express = require('express')
 const cors = require('cors');
 require('dotenv').config();
@@ -66,14 +68,14 @@ async function run() {
 
     // Read:
 
-    app.post('/addCraft', async(req,res) =>{
-     const user = req.body;
-     console.log('New User',user);
+    // app.post('/addCraft', async(req,res) =>{
+    //  const user = req.body;
+    //  console.log('New User',user);
 
-     const result = await productCollection.insertOne(user)
-     console.log(result);
-     res.send(result);
-    })
+    //  const result = await productCollection.insertOne(user)
+    //  console.log(result);
+    //  res.send(result);
+    // })
 
     // Read:
     app.get("/myCraft/:email", async (req, res) =>{
@@ -92,6 +94,13 @@ async function run() {
       res.send(result);
 
     })
+
+    // To get all products:
+    app.get('/alArt',async (req,res) =>{
+      const result = await productCollection.find().toArray();
+      res.send(result);
+    }
+      )
 
     //Update
     app.put("/updateProduct/:id",async(req,res) =>{
