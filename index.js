@@ -66,17 +66,7 @@ async function run() {
      res.send(result);
     })
 
-    // Read:
-
-    // app.post('/addCraft', async(req,res) =>{
-    //  const user = req.body;
-    //  console.log('New User',user);
-
-    //  const result = await productCollection.insertOne(user)
-    //  console.log(result);
-    //  res.send(result);
-    // })
-
+   
     // Read:
     app.get("/myCraft/:email", async (req, res) =>{
       const email = req.params.email;
